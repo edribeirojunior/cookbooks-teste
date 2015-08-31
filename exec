@@ -43,7 +43,7 @@ echo $1
 
 
 ##Navita 3 IIS - 172.31.30.171
-./execRecipeEN NVTSGTIIS03.nvta.corp $1
+#./execRecipeEN NVTSGTIIS03.nvta.corp $1
 
 #Template
 # - 172.16.15.
