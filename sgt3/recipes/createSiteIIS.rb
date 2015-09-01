@@ -1,4 +1,4 @@
-    node['SGT']['CONGLOMERADOS'].each do |lyr|
+node['SGT']['CONGLOMERADOS'].each do |lyr|
 	#Create an app pool
 	iis_pool "#{lyr[1]}" do
 	  runtime_version "4.0"
@@ -17,4 +17,4 @@
 	  path "C:\\Aplicativos_Navita\\#{lyr[1]}"
 	  action [:add,:start]
 	end
-    end
+end
