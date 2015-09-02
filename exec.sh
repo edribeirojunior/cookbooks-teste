@@ -14,7 +14,7 @@ echo $chef_resource
 ##VPAR-SGT-APP-01 - 172.16.15.4
 #./execRecipePT.sh WIN-V98948XPU8D.nvta.corp $chef_resource
 ##WALMART-SGT-IIS-01 - 172.16.15.5
-./execRecipeEN NVTCD $chef_resource
+#./execRecipeEN NVTCD $chef_resource
 ##WALMART-SGT-APP-01 - 172.16.15.6
 #./execRecipeEN.sh NVTSGT01.nvta.corp $chef_resource
 ##NVT-SGT-IIS-01 - 172.16.15.7
