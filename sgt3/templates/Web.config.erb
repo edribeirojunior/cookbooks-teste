@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <configSections>
+    <section name="loggingConfiguration" type="Microsoft.Practices.EnterpriseLibrary.Logging.Configuration.LoggingSettings, Microsoft.Practices.EnterpriseLibrary.Logging, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" requirePermission="true" />
+    <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+  </configSections>
+  <loggingConfiguration name="" tracingEnabled="true" defaultCategory="General">
+    <listeners>
+      <add name="FileTrace" 
+           type="Microsoft.Practices.EnterpriseLibrary.Logging.TraceListeners.RollingFlatFileTraceListener, Microsoft.Practices.EnterpriseLibrary.Logging, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" 
+           listenerDataType="Microsoft.Practices.EnterpriseLibrary.Logging.Configuration.RollingFlatFileTraceListenerData, Microsoft.Practices.EnterpriseLibrary.Logging, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" 
+           fileName="C:\Aplicativos_Navita\Log\<%= @url %>\Navita.NGN.WEB\DEBUG.log" 
+           formatter="Default" 
+           rollInterval="Day" 
+           rollSizeKB="10000" 
+           header="" 
+           footer="" />
+    </listeners>
+    <formatters>
+      <add type="Microsoft.Practices.EnterpriseLibrary.Logging.Formatters.TextFormatter, Microsoft.Practices.EnterpriseLibrary.Logging, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" template="{timestamp(local)} - {win32ThreadId} - {category} - {message}" name="Default" />
+    </formatters>
+    <logFilters>
+      <add type="Microsoft.Practices.EnterpriseLibrary.Logging.Filters.CategoryFilter, Microsoft.Practices.EnterpriseLibrary.Logging, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" categoryFilterMode="AllowAllExceptDenied" name="Category Filter">
+        <categoryFilters>
+          <!--<add name="General" />-->
+        </categoryFilters>
+      </add>
+    </logFilters>
+    <categorySources>
+      <add switchValue="All" name="General" />
+    </categorySources>
+    <specialSources>
+      <allEvents switchValue="All" name="All Events">
+        <listeners>
+          <add name="FileTrace" />
+        </listeners>
+      </allEvents>
+      <notProcessed switchValue="All" name="Unprocessed Category" />
+      <errors switchValue="All" name="Logging Errors and Warnings">
+        <listeners></listeners>
+      </errors>
+    </specialSources>
+  </loggingConfiguration>
+  <appSettings>
+    <add key="webpages:Version" value="3.0.0.0" />
+    <add key="webpages:Enabled" value="false" />
+    <add key="ClientValidationEnabled" value="true" />
+    <add key="UnobtrusiveJavaScriptEnabled" value="true" />
+    <add key="Authenticate.SecuritykeyEncryption" value="F3A79233-0EB9-424D-B5F4-CAF023FF34DD" />
+    <add key="Infraestrutura.UsingSession" value="true" />
+    <add key="Login.IdConglomerate" value="<%= @conglomerado %>" />
+    <add key="Login.NameConglomerate" value="" />
+  </appSettings>
+  <system.serviceModel>
+    <bindings>
+      <netTcpBinding>
+        <binding name="NetTcpBinding_Default" maxBufferPoolSize="2147483647" maxBufferSize="2147483647" maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+      </netTcpBinding>
+    </bindings>
+    <client>
+      <endpoint address="net.tcp://<%= @ip_app %>:31001/User" 
+                binding="netTcpBinding" bindingConfiguration="NetTcpBinding_Default" behaviorConfiguration="EndpointBehavior_Default"
+                contract="Navita.NGN.ApplicationModel.IUser" name="Navita.NGN.ApplicationModel.IUser" />
+
+      <endpoint address="net.tcp://<%= @ip_app %>:31001/ReportManager"
+                binding="netTcpBinding" bindingConfiguration="NetTcpBinding_Default" behaviorConfiguration="EndpointBehavior_CustomAuthentication"
+                contract="Navita.NGN.ApplicationModel.IReportManager" name="Navita.NGN.ApplicationModel.IReportManager" />
+
+      <endpoint address="net.tcp://<%= @ip_app %>:31001/UsersDash"
+                binding="netTcpBinding" bindingConfiguration="NetTcpBinding_Default" behaviorConfiguration="EndpointBehavior_CustomAuthentication"
+                contract="Navita.NGN.ApplicationModel.IUsersDash" name="Navita.NGN.ApplicationModel.IUsersDash" />
+
+      <endpoint address="net.tcp://<%= @ip_app %>:31001/Invoice"
+                binding="netTcpBinding" bindingConfiguration="NetTcpBinding_Default" behaviorConfiguration="EndpointBehavior_CustomAuthentication"
+                contract="Navita.NGN.ApplicationModel.IInvoice" name="Navita.NGN.ApplicationModel.IInvoice" />
+
+      <endpoint address="net.tcp://<%= @ip_app %>:31001/ReportUsage"
+                binding="netTcpBinding" bindingConfiguration="NetTcpBinding_Default" behaviorConfiguration="EndpointBehavior_CustomAuthentication"
+                contract="Navita.NGN.ApplicationModel.IReportUsage" name="Navita.NGN.ApplicationModel.IReportUsage" />
+
+      <endpoint address="net.tcp://<%= @ip_app %>:31001/ReportInteractive"
+                binding="netTcpBinding" bindingConfiguration="NetTcpBinding_Default" behaviorConfiguration="EndpointBehavior_CustomAuthentication"
+                contract="Navita.NGN.ApplicationModel.IReportInteractive" name="Navita.NGN.ApplicationModel.IReportInteractive" />
+
+      <endpoint address="net.tcp://<%= @ip_app %>:31001/Branch"
+                binding="netTcpBinding" bindingConfiguration="NetTcpBinding_Default" behaviorConfiguration="EndpointBehavior_CustomAuthentication"
+                contract="Navita.NGN.ApplicationModel.IBranch" name="Navita.NGN.ApplicationModel.IBranch" />
+
+      <endpoint address="net.tcp://<%= @ip_app %>:31001/AdminDash"
+                binding="netTcpBinding" bindingConfiguration="NetTcpBinding_Default" behaviorConfiguration="EndpointBehavior_CustomAuthentication"
+                contract="Navita.NGN.ApplicationModel.IAdminDash" name="Navita.NGN.ApplicationModel.IAdminDash" />
+
+      <endpoint address="net.tcp://<%= @ip_app %>:31001/Configuration"
+                binding="netTcpBinding" bindingConfiguration="NetTcpBinding_Default" behaviorConfiguration="EndpointBehavior_CustomAuthentication"
+                contract="Navita.NGN.ApplicationModel.IConfiguration" name="Navita.NGN.ApplicationModel.IConfiguration" />
+				
+      <endpoint address="net.tcp://<%= @ip_app %>:31001/ReportInventory"
+                binding="netTcpBinding" bindingConfiguration="NetTcpBinding_Default" behaviorConfiguration="EndpointBehavior_CustomAuthentication"
+                contract="Navita.NGN.ApplicationModel.IReportInventory" name="Navita.NGN.ApplicationModel.IReportInventory" />
+    </client>
+    <behaviors>
+      <endpointBehaviors>
+        <behavior name="EndpointBehavior_Default">
+          <dataContractSerializer maxItemsInObjectGraph="2147483647" />
+        </behavior>
+        <behavior name="EndpointBehavior_CustomAuthentication">
+          <dataContractSerializer maxItemsInObjectGraph="2147483647" />
+          <httpHeaderParameters />
+        </behavior>
+      </endpointBehaviors>
+    </behaviors>
+    <extensions>
+      <behaviorExtensions>
+        <add name="httpHeaderParameters" type="Navita.InfraEstrutura.Comum.ClientMessage.HttpHeaderBehaviorExtensionElement, Navita.InfraEstrutura.Comum, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+      </behaviorExtensions>
+    </extensions>
+  </system.serviceModel>
+  <system.web>
+    <authentication mode="Forms">
+      <forms loginUrl="~/Login/Index" timeout="20" protection="All" />
+    </authentication>    
+    <sessionState mode="InProc" cookieless="false" timeout="20" />
+    <globalization culture="pt-BR" uiCulture="pt-BR" />
+    <customErrors mode="RemoteOnly" defaultRedirect="~/Error">
+      <error redirect="~/Error" statusCode="401" />
+      <error redirect="~/Error" statusCode="404" />
+    </customErrors>
+    <compilation debug="true" targetFramework="4.5.1" />
+    <httpRuntime targetFramework="4.5.1" />
+  </system.web>
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <assemblyIdentity name="Microsoft.Owin" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="0.0.0.0-3.0.1.0" newVersion="3.0.1.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Microsoft.Owin.Security.OAuth" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="0.0.0.0-3.0.1.0" newVersion="3.0.1.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Microsoft.Owin.Security.Cookies" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="0.0.0.0-3.0.1.0" newVersion="3.0.1.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Microsoft.Owin.Security" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="0.0.0.0-3.0.1.0" newVersion="3.0.1.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Newtonsoft.Json" culture="neutral" publicKeyToken="30ad4fe6b2a6aeed" />
+        <bindingRedirect oldVersion="0.0.0.0-7.0.0.0" newVersion="7.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Optimization" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="1.0.0.0-1.1.0.0" newVersion="1.1.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="WebGrease" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="0.0.0.0-1.6.5135.21930" newVersion="1.6.5135.21930" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Antlr3.Runtime" publicKeyToken="eb42632606e9261f" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-3.5.0.2" newVersion="3.5.0.2" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Helpers" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.WebPages" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Mvc" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="0.0.0.0-5.2.3.0" newVersion="5.2.3.0" />
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
+  <entityFramework>
+    <defaultConnectionFactory type="System.Data.Entity.Infrastructure.LocalDbConnectionFactory, EntityFramework">
+      <parameters>
+        <parameter value="v12.0" />
+      </parameters>
+    </defaultConnectionFactory>
+    <providers>
+      <provider invariantName="System.Data.SqlClient" type="System.Data.Entity.SqlServer.SqlProviderServices, EntityFramework.SqlServer" />
+    </providers>
+  </entityFramework>
+
+</configuration>
