@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 if [ -z $1 ]
 then
- export chef_resource = $1
-else
  #Comando executado caso nenhum parametro seja passado por script em $1
- export chef_resource = "recipe[sgt3::downloadNextract]"
+ export chef_resource="recipe[sgt3::downloadNextract]"
+else
+ export chef_resource=$1
 fi
 
 echo $chef_resource
@@ -38,7 +38,7 @@ echo $chef_resource
 ##NVT-SGT-IIS-02 - 172.16.15.18
 #./execRecipeEN.sh NVT-SGT-IIS-02.nvta.corp $chef_resource
 ##JOHNSON-SGT-IISAPP-01 - 172.16.15.19
-./execRecipeEN JOHNSON-SGT-IIS-01.nvta.corp $chef_resource
+#./execRecipeEN JOHNSON-SGT-IIS-01.nvta.corp $chef_resource
 ##WHIRLPOOL-SGT-IIS-01 - 172.16.15.22
 #./execRecipeEN.sh NVTWHIRLPOOLIIS-01.nvta.corp $chef_resource
 ##WHIRLPOOL-SGT-APP-01 - 172.16.15.23
