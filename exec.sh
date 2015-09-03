@@ -10,7 +10,7 @@ fi
 echo $chef_resource
 
 ##VPAR-SGT-IIS-01 - 172.16.15.3
-#./execRecipeEN.sh VPAR-SGT-IIS-02.nvta.corp $chef_resource
+##./execRecipeEN.sh VPAR-SGT-IIS-02.nvta.corp $chef_resource
 ##VPAR-SGT-APP-01 - 172.16.15.4
 #./execRecipePT.sh WIN-V98948XPU8D.nvta.corp $chef_resource
 ##WALMART-SGT-IIS-01 - 172.16.15.5
