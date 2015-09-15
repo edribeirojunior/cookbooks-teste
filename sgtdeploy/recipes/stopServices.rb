@@ -2,6 +2,10 @@ service "GTC-Monitor" do
   action :stop
 end
 
+service "W3SVC" do
+  action :stop
+end
+
 powershell_script 'stopServices.ps' do
   code <<-EOH
   Get-Service | Where-Object {$_.status -eq "running"} | Where-Object {$_.DisplayName -like "*GTC*"} | ForEach{
