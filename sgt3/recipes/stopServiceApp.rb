@@ -1,3 +1,3 @@
-service "Navita Hosting - SGT3" do
+service "Navita Hosting - NGN" do
   action :stop
 end
