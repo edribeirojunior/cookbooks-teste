@@ -6,6 +6,6 @@ end
 node['SGT']['CONGLOMERADOS'].each do |lyr|
 	execute 'Copy IIS files' do
 	  command "robocopy C:\\Temp\\sgt3-IIS\\Navita.NGN.WEB C:\\Aplicativos_Navita\\#{lyr[1]} /s"
-	  returns [0, 1]
+	  returns [0, 1, 3]
 	end
 end
