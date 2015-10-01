@@ -1,3 +1,5 @@
-iis_pool "#{lyr[1]}" do
-  action :start
+node['SGT']['CONGLOMERADOS'].each do |lyr|
+  iis_pool "#{lyr[1]}" do
+    action :start
+  end
 end
