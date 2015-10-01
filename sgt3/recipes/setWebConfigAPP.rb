@@ -1,5 +1,5 @@
 if node['SGT']['DB']['INSTANCE'] != ''
- HOST = node['SGT']['DB']['HOST'] + "\\" node['SGT']['DB']['INSTANCE']
+ HOST = node['SGT']['DB']['HOST'] + "\\" + node['SGT']['DB']['INSTANCE']
 else
  HOST = node['SGT']['DB']['HOST']
 end
