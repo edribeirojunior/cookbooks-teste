@@ -14,8 +14,8 @@ end
 
 attr_reader :key_file, :key, :cert, :ef
 
-action :create  do
-  converge_by("Create #{ @new_resource }") do
+action :create do
+  converge_by("Create #{@new_resource}") do
     unless ::File.exist? new_resource.name
       create_keys
       cert_content = cert.to_pem
@@ -26,6 +26,7 @@ action :create  do
         mode new_resource.mode
         owner new_resource.owner
         group new_resource.group
+        sensitive true
         content cert_content
       end
 
@@ -34,6 +35,7 @@ action :create  do
         mode new_resource.mode
         owner new_resource.owner
         group new_resource.group
+        sensitive true
         content key_content
       end
       new_resource.updated_by_last_action(true)
@@ -47,7 +49,7 @@ protected
   def key_file
     unless new_resource.key_file
       path, file = ::File.split(new_resource.name)
-      filename  = ::File.basename(file, ::File.extname(file))
+      filename = ::File.basename(file, ::File.extname(file))
       new_resource.key_file path + '/' + filename + '.key'
     end
     new_resource.key_file
@@ -77,8 +79,8 @@ protected
   end
 
   def subject
-    @subject ||= '/C='  + new_resource.country +
-                 '/O='  + new_resource.org +
+    @subject ||= '/C=' + new_resource.country +
+                 '/O=' + new_resource.org +
                  '/OU=' + new_resource.org_unit +
                  '/CN=' + new_resource.common_name
   end
@@ -98,5 +100,5 @@ protected
     cert.extensions = extensions
     cert.add_extension ef.create_extension('authorityKeyIdentifier',
                                            'keyid:always,issuer:always')
-    cert.sign key, OpenSSL::Digest::SHA1.new
+    cert.sign key, OpenSSL::Digest::SHA256.new
   end
