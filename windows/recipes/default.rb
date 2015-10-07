@@ -27,7 +27,7 @@
 end
 
 # the rest
-%w{ windows-api windows-pr win32-dir win32-event win32-mutex ruby-wmi rdp-ruby-wmi }.each do |win_gem|
+%w{ windows-api windows-pr win32-dir win32-event win32-mutex }.each do |win_gem|
   chef_gem win_gem do
     action :install
   end

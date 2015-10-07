@@ -1,9 +1,9 @@
 #
-# Author:: Seth Chisamore (<schisamo@chef.io>)
+# Author:: Richard Lavey (richard.lavey@calastone.com)
 # Cookbook Name:: windows
-# Resource:: reboot
+# Resource:: certificate
 #
-# Copyright:: 2011, Chef Software, Inc.
+# Copyright:: 2015, Calastone Ltd.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,17 +18,11 @@
 # limitations under the License.
 #
 
-actions :request, :cancel
+actions :create, :delete, :acl_add
+default_action :create
 
-attribute :timeout, :kind_of => Integer, :name_attribute => true
-attribute :reason, :kind_of => String, :default => 'Chef client run'
-
-def initialize(name,run_context=nil)
-  super
-  @action = :request
-  Chef::Log.warn <<-EOF
-The windows_reboot resource is deprecated. Please use the reboot resource in
-Chef Client 12. windows_reboot will be removed in the next major version 
-release of the Windows cookbook.
-EOF
-end
+attribute :source, :kind_of => String, :name_attribute => true, :required => true
+attribute :pfx_password, :kind_of => String
+attribute :private_key_acl, :kind_of => Array
+attribute :store_name, :kind_of => String, :default => 'MY', :regex => /^(?:MY|CA|ROOT)$/
+attribute :user_store, :kind_of => [TrueClass, FalseClass], :default => false
