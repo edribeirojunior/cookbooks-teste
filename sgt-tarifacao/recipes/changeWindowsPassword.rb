@@ -1,3 +1,3 @@
 user node['SGT']['USER'] do
-  password "nvta@2015"
+  password "bq185@zw"
 end

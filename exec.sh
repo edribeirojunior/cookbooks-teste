@@ -53,17 +53,17 @@ echo $chef_resource
 ##VIVO-SGT-IIS-01 - 10.10.30.13
 #./execRecipeEN.sh Vivo-SGT-IIS-02 $chef_resource > /var/log/chef/10.10.30.13.txt &
 ##VIVO-SGT-APP-01 - 10.10.30.14
-./execRecipePT.sh VIVO-APP-01 $chef_resource > /var/log/chef/10.10.30.14.txt &
+#####./execRecipePT.sh VIVO-APP-01 $chef_resource > /var/log/chef/10.10.30.14.txt &
 
 ###Ambientes AWS
 ##PORTO-SGT-IIS-01 - 172.31.21.113
 #./execRecipeEN.sh NVTSGTPORTOIIS-.nvta.corp $chef_resource > /var/log/chef/172.31.21.113.txt &
 ##PORTO-SGT-APP-01 - 172.31.20.227
-./execRecipePT.sh SGTPORTOAPP01.nvta.corp $chef_resource > /var/log/chef/172.31.20.227.txt &
+./execRecipeEN.sh SGTPORTOAPP01.nvta.corp $chef_resource > /var/log/chef/172.31.20.227.txt &
 ##SGT3-SGT-IIS-01 - 172.31.30.171
 #./execRecipeEN.sh NVTSGTIIS03.nvta.corp $chef_resource > /var/log/chef/172.31.30.171.txt &
 ##SGT3-SGT-APP-01 - 172.31.26.214
-./execRecipePT.sh NVTSGTAPP03.nvta.corp $chef_resource > /var/log/chef/172.31.26.214.txt &
+./execRecipeEN.sh NVTSGTAPP03.nvta.corp $chef_resource > /var/log/chef/172.31.26.214.txt &
 
 ##SGT-DEV - 172.31.20.54
 #./execRecipeEN.sh SGT-dev.nvta.corp $chef_resource > /var/log/chef/172.31.20.54.txt &
