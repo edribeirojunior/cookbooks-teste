@@ -25,17 +25,4 @@ echo $chef_resource
 ##JOHNSON-SGT-IISAPP-01 - 172.16.15.19
 ./execRecipeEN.sh JOHNSON-SGT-IIS-01.nvta.corp $chef_resource > /var/log/chef/172.16.15.19.txt &
 
-##SGT-DEV - 172.31.20.54
-#./execRecipeEN.sh SGT-dev.nvta.corp $chef_resource > /var/log/chef/172.31.20.54.txt &
-
-##SGT-DEV - 172.31.20.54
-#./execRecipeEN.sh NVTHOMNGN01.nvta.corp $chef_resource  > /var/log/chef/172.31.20.54.txt &
-
-#Template
-# - 172.16.15.
-#./execRecipeEN.sh .nvta.corp $chef_resource  > /var/log/chef/10.10.30.14.txt &
-# - 172.16.15.
-#./execRecipePT.sh .nvta.corp $chef_resource  > /var/log/chef/10.10.30.14.txt &
-
-
 
