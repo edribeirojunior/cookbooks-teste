@@ -25,7 +25,7 @@ echo $chef_resource
 
 ###Ambientes VIVO
 ##VIVO-SGT-APP-01 - 10.10.30.14
-#####./execRecipePT.sh VIVO-APP-01 $chef_resource > /var/log/chef/10.10.30.14.txt &
+./execRecipePT.sh VIVO-APP-01 $chef_resource > /var/log/chef/10.10.30.14.txt &
 
 ###Ambientes AWS
 ##PORTO-SGT-APP-01 - 172.31.20.227

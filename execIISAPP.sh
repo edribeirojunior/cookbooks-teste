@@ -21,7 +21,7 @@ echo $chef_resource
 ##TNX-SGT-IISAPP-01 - 172.16.15.14
 ./execRecipeEN.sh TNX.nvta.corp $chef_resource > /var/log/chef/172.16.15.14.txt &
 ##DAMOVO-SGT-IISAPP-02 - 172.16.15.15
-#./execRecipePT.sh DAMOVO-SGT-IISAPP-02.nvta.corp $chef_resource > /var/log/chef/172.16.15.15.txt &
+./execRecipePT.sh DAMOVO-SGT-IISAPP-02.nvta.corp $chef_resource > /var/log/chef/172.16.15.15.txt &
 ##JOHNSON-SGT-IISAPP-01 - 172.16.15.19
 ./execRecipeEN.sh JOHNSON-SGT-IIS-01.nvta.corp $chef_resource > /var/log/chef/172.16.15.19.txt &
 
