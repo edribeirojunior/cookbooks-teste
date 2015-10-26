@@ -10,4 +10,3 @@ remote_file "#{target}" do
   source bag["FTP_PATH"] + bag["OPTFILE"]
   action :create
 end
-
