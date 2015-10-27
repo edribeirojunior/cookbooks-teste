@@ -5,4 +5,3 @@ LINK_CONNECT= node['CONNECT']['LINK_CONNECT']
                   :link_connect => LINK_CONNECT
               })
   end
-end
