@@ -6,14 +6,14 @@ JAR_FILE_PATTERN=portal.jar
 
 java \
      -Dfile.encoding=UTF-8 \
-     -Dredirect.url=https://<%= @link_connect %>.navita.com.br/portal/j_spring_cas_security_check \
+     -Dredirect.url=https://<%= @link_connect %>/portal/j_spring_cas_security_check \
      -Dspring.profiles.active=prod \
      -Dmdm.url=http://mdmbus.docker \
      -Dinvoice.importer.path=/var/data/imports \
      -Dspring.datasource.url=jdbc:mysql://mysql:3306/apprest \
      -Dldap.contextSource.url=ldap://openldap:389 \
      -Dldap.contextSource.userDn=cn=admin,dc=navita,dc=com,dc=br \
-     -Dcas.url=https://<%= @link_connect %>.navita.com.br/cas \
+     -Dcas.url=https://<%= @link_connect %>/cas \
      -Dreport.url=http://report.docker:8084/report \
      -Dinventory.feign.host=http://inventory.docker:8080 \
      -Dinvoice.feign.host=http://invoice.docker:8080 \

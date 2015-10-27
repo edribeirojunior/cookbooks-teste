@@ -9,6 +9,6 @@ execute 'Copy VAR Tar' do
 end
 
 execute 'Untar file' do
-  command "tar -xvzf /var/data/connect_data.tar.gz"
+  command "tar -xvzf /var/data/connect_edata.tar.gz"
   returns [0,1]
 end
