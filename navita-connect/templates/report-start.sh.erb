@@ -1,0 +1,12 @@
+#!/bin/bash
+
+APP_ROOT=/opt/report
+JAR_FILE_PATTERN=navita-report*.jar
+
+java -jar $APP_ROOT/$JAR_FILE_PATTERN \
+        --report.spark.master=spark://spark-master:7077 \
+        --spark.lib.path=/opt/report \
+        --report.cassandra.contactpoints=cassandra \
+        --spring.datasource.url=jdbc:mysql://<%= @rds %>:3306/apprest \
+        --spring.datasource.username=<%= @user_database %> \
+        --spring.datasource.password=<%= @passwd_database %> \
