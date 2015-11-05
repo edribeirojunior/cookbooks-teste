@@ -9,11 +9,16 @@ error_log = iis_gtc + "\\AtualizaBanco\\erro_Banco.txt"
 # returns [0, 1]
 #end
 
-remote_directory dest do
- source orig
- recursive true
- action :create
+execute 'Copy Scripts files' do
+  command "robocopy #{orig} #{dest} /s /COPY:DT"
+  returns [0, 1]
 end
+
+#remote_directory dest do
+# source orig
+# recursive true
+# action :create
+#end
 
 execute 'exec atualizabanco' do
   command "#{iis_gtc}\\AtualizaBanco\\Atualizabanco.exe AUTO NOMESSAGES"
