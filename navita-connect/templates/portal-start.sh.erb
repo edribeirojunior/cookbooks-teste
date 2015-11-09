@@ -10,7 +10,7 @@ java \
      -Dspring.profiles.active=prod \
      -Dmdm.url=http://mdmbus.docker \
      -Dinvoice.importer.path=/var/data/imports \
-     -Dspring.datasource.url=jdbc:mysql://mysql:3306/apprest \
+     -Dspring.datasource.url=jdbc:mysql://<%= @rds %>:3306/apprest \
      -Dldap.contextSource.url=ldap://openldap:389 \
      -Dldap.contextSource.userDn=cn=admin,dc=navita,dc=com,dc=br \
      -Dcas.url=https://<%= @link_connect %>/cas \
