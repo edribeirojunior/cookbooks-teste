@@ -9,6 +9,6 @@ execute 'Copy OPT Tar' do
 end
 
 execute 'Untar file' do
-  command "tar -xvzf /opt/connect_opt.tar.gz"
+  command "tar -xzf /opt/connect_opt.tar.gz"
   returns [0,1]
 end
