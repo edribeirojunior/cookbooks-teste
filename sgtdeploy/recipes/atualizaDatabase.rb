@@ -6,7 +6,7 @@ error_log = iis_gtc + "\\AtualizaBanco\\erro_Banco.txt"
 
 execute 'Copy Scripts files' do
   command "robocopy #{orig} #{dest} /s /COPY:DT"
-  returns [0,1]
+  returns [0,1,3]
 end
 
 
