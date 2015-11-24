@@ -1,5 +1,5 @@
 bag = data_bag_item("sgtdeploy", "files")
-orig = "C:\\Temp\\" + bag["VERSION"] + "\\IIS\\GTC\\AtualizaBanco\\Scripts"
+orig = "C:\\Temp\\" + bag["VERSION"] + "\\IIS\\GTC\\AtualizaBanco\\"
 iis_gtc = node["SGT"]["IIS_GTC"]
 dest = iis_gtc + "\\AtualizaBanco\\Scripts"
 error_log = iis_gtc + "\\AtualizaBanco\\erro_Banco.txt"
