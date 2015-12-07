@@ -29,6 +29,6 @@ echo $chef_resource
 
 ###Ambientes AWS
 ##PORTO-SGT-IIS-01 - 172.31.21.113
-./execRecipeEN.sh NVTSGTPORTOIIS-.nvta.corp $chef_resource > /var/log/chef/172.31.21.113.txt &
+./execRecipeEN.sh NVTSGTPORTOIIS $chef_resource > /var/log/chef/172.31.21.113.txt &
 ##SGT3-SGT-IIS-01 - 172.31.30.171
 ./execRecipeEN.sh NVTSGTIIS03.nvta.corp $chef_resource > /var/log/chef/172.31.30.171.txt &
