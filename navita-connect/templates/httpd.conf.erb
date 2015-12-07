@@ -192,7 +192,7 @@ ServerAdmin you@example.com
 #
 # If your host doesn't have a registered DNS name, enter its IP address here.
 #
-ServerName <%= @link_connect %>:80
+ServerName <%=@link_connect%>:80
 
 #
 # Deny access to the entirety of your server's filesystem. You must
@@ -516,7 +516,7 @@ NameVirtualHost *:443
 
 # Redirect from port 80 to 443
 <VirtualHost *:80>
-   ServerName <%= @link_connect %>
+   ServerName <%=@link_connect%>
    ServerAlias *.navita.com.br
 
    RewriteEngine   on
@@ -526,7 +526,7 @@ NameVirtualHost *:443
 </VirtualHost>
 
 <VirtualHost *:443>
-   ServerName <%= @link_connect %>
+   ServerName <%=@link_connect%>
    ServerAlias *.navita.com.br
    SSLEngine on
    SSLCertificateFile /var/data/ssl/cert.pem
@@ -540,30 +540,30 @@ NameVirtualHost *:443
    SSLProxyCheckPeerName off
 
    # cas redirect
-   ProxyPass            /cas    http://cas.docker:8080/cas ttl=5
-   ProxyPassReverse     /cas    http://cas.docker:8080/cas
+   ProxyPass            /cas    http://cas:8080/cas ttl=5
+   ProxyPassReverse     /cas    http://cas:8080/cas
 
    # portal redirect
-   ProxyPass            /portal http://portal.docker:9090/portal ttl=5
-   ProxyPassReverse     /portal http://portal.docker:9090/portal
+   ProxyPass            /portal http://portal:9090/portal ttl=5
+   ProxyPassReverse     /portal http://portal:9090/portal
 
    #Redirect 301 / /portal/
 
    # phpldapadmin redirect
-   ProxyPass            /phpldapadmin https://phpldapadmin.docker/phpldapadmin ttl=5
-   ProxyPassReverse     /phpldapadmin https://phpldapadmin.docker/phpldapadmin
+   ProxyPass            /phpldapadmin https://phpldapadmin/phpldapadmin ttl=5
+   ProxyPassReverse     /phpldapadmin https://phpldapadmin/phpldapadmin
 
    # inventory redirect
-   ProxyPass            /inventory      http://inventory.docker:8080/inventory ttl=5
-   ProxyPassReverse     /inventory      http://inventory.docker:8080/inventory
+   ProxyPass            /inventory      http://inventory:8080/inventory ttl=5
+   ProxyPassReverse     /inventory      http://inventory:8080/inventory
 
    # invoice redirect
-   ProxyPass            /invoice        http://invoice.docker:8080/invoice ttl=5
-   ProxyPassReverse     /invoice        http://invoice.docker:8080/invoice
+   ProxyPass            /invoice        http://invoice:8080/invoice ttl=5
+   ProxyPassReverse     /invoice        http://invoice:8080/invoice
 
    # report redirect
-   ProxyPass            /report         http://report.docker:8084/report ttl=5
-   ProxyPassReverse     /report         http://report.docker:8084/report
+   ProxyPass            /report         http://report:8084/report ttl=5
+   ProxyPassReverse     /report         http://report:8084/report
 
    # mdmbus redirect
    ProxyPass            /mdmbus         http://mdmbus.docker:8888/mdm
@@ -590,8 +590,8 @@ NameVirtualHost *:443
    ProxyPassReverse     /procurement   http://eprocurement.docker:8080/procurement/
 
    #Redis
-   ProxyPass            /redis   http://redis.docker:6379/
-   ProxyPassReverse     /redis   http://redis.docker:6379/
+   ProxyPass            /redis   http://redis:6379/
+   ProxyPassReverse     /redis   http://redis:6379/
 
 
    #Eprocurement redirect

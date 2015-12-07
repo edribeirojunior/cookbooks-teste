@@ -19,7 +19,7 @@
 
 ##
 # Services Management Web UI Security
-server.name=https://<%= @link_connect %>
+server.name=https://<%=@link_connect%>
 server.prefix=${server.name}/cas
 cas.securityContext.serviceProperties.service=${server.prefix}/services/j_acegi_cas_security_check
 # Names of roles allowed to access the CAS service manager
@@ -142,10 +142,10 @@ ldap.pool.testOnBorrow=false
 database.dialect=org.hibernate.dialect.MySQL5Dialect
 database.driverClass=com.mysql.jdbc.Driver
 # database.url=jdbc:mysql://mysql/cas # Docker config
-database.url=jdbc:mysql://<%= @rds %>/cas
+database.url=jdbc:mysql://<%=@rds%>/cas
 #database.url=jdbc:postgresql://<postgresql_server_address>/cas?ssl=true
-database.user=<%= @user_database %>
-database.password=<%= @passwd_database %>
+database.user=<%=@user_database%>
+database.password=<%=@passwd_database%>
 database.pool.minSize=3
 database.pool.maxSize=15
 
