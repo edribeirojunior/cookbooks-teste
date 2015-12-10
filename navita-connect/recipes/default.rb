@@ -1,4 +1,4 @@
-$LINK_CONNECT = node['CONNECT']['LINK_CONNECT']
-$RDS = node['CONNECT']['DB']['RDS']
-$USER_DATABASE = node['CONNECT']['DB']['USER_DATABASE']
-$PASSWD_DATABASE = node['CONNECT']['DB']['PASSWD_DATABASE']
+$link_connect = node['CONNECT']['LINK_CONNECT']
+$rds = node['CONNECT']['DB']['RDS']
+$user_database = node['CONNECT']['DB']['USER_DATABASE']
+$passwd_database = node['CONNECT']['DB']['PASSWD_DATABASE']
