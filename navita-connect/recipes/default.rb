@@ -1,8 +1,4 @@
-#
-# Cookbook Name:: navita-connect
-# Recipe:: default
-#
-# Copyright 2015, YOUR_COMPANY_NAME
-#
-# All rights reserved - Do Not Redistribute
-#
+LINK_CONNECT = node['CONNECT']['LINK_CONNECT']
+RDS = node['CONNECT']['DB']['RDS']
+USER_DATABASE = node['CONNECT']['DB']['USER_DATABASE']
+PASSWD_DATABASE = node['CONNECT']['DB']['PASSWD_DATABASE']
