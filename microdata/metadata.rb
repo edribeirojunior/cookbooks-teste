@@ -1,0 +1,11 @@
+name             'microdata'
+maintainer       'Mv Sistemas'
+maintainer_email 'edson.junior@mv.com.br  '
+license          'All rights reserved'
+description      'Installs/Configures sgtdeploy'
+long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
+version          '0.1.0'
+depends          'windows'
+depends          'iis'
+depends          'ms_dotnet35'
+depends          'ms_dotnet4'

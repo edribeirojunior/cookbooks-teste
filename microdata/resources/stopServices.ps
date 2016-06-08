@@ -1,0 +1,9 @@
+Get-Service | Where-Object {$_.status -eq "running"} | Where-Object {$_.DisplayName -like "*mPacs*"} | ForEach{
+$service = get-service $_.Name
+$service.Stop()
+}
+
+Get-Service | Where-Object {$_.status -eq "running"} | Where-Object {$_.DisplayName -like "*mPacs*"} | ForEach{
+$service = get-service $_.Name
+$service.Stop()
+}
