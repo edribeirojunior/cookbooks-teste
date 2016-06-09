@@ -1,0 +1,41 @@
+{
+  "config_variables": {
+    "AUTENTICAD_context": "TESTE",
+
+    "balancer_host": "TESTE",
+    "balancer_port": "TESTE",
+
+    "database_dialect": "TESTE",
+    "database_driverclassname": "TESTE",
+    "database_host": "TESTE",
+    "database_hostport": "TESTE",
+    "database_password": "TESTE",
+    "database_port": "TESTE",
+    "database_servicename": "TESTE",
+    "database_servicename_always_filled": "TESTE",
+    "database_url": "TESTE",
+    "database_username": "TESTE",
+
+    "LIBERTY_context": "TESTE",
+
+    "mv_path_artifacts": "TESTE",
+    "mv_path_conf": "TESTE",
+    "mv_path_dbc": "TESTE",
+
+    "PAGU_context": "TESTE",
+    "PAGU_report_context": "TESTE",
+    "PAGU_report_host": "TESTE",
+    "PAGU_report_port": "TESTE",
+
+    "product_context": "TESTE",
+    "product_dbc_name": "TESTE",
+    "product_dbc_version": "TESTE",
+    "product_name": "TESTE",
+    "product_report_context": "TESTE",
+    "product_report_host": "TESTE",
+    "product_report_port": "TESTE",
+    "product_version": "TESTE",
+
+    "SOULMV_report_host": "TESTE"
+  }
+}

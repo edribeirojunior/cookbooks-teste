@@ -1,0 +1,51 @@
+{
+  "soulmvlinux": {
+    "urlbase": "http://192.168.4.194"
+  },
+  "tomcatinstance": {
+    "port": [
+      "8010",
+      "8020",
+      "8030"
+    ]
+  },
+  "install_app": {
+    "product": [
+      {
+        "name": "suprimentos",
+        "initials": "SUPRI",
+        "type": [
+          "forms"
+        ],
+        "version": "01.289",
+        "port": "8010"
+      },
+      {
+        "name": "atendimento",
+        "initials": "ATEND",
+        "type": [
+          "reports"
+        ],
+        "version": "01.289",
+        "port": "8020"
+      },
+      {
+        "name": "apoio",
+        "initials": "APOIO",
+        "type": [
+          "forms",
+          "reports"
+        ],
+        "version": "01.289",
+        "port": "8020"
+      }
+    ]
+  },
+  "run_list": [
+    "recipe[soulmvlinux::create_install_directories]",
+    "recipe[soulmvlinux::install_jdk]",
+    "recipe[soulmvlinux::install_tomcat_home]",
+    "recipe[soulmvlinux::create_tomcat_instance]",
+    "recipe[soulmvlinux::install_soulmv_app]"
+  ]
+}

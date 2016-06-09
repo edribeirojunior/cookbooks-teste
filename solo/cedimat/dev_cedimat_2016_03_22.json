@@ -1,0 +1,94 @@
+{
+  "soulmvlinux": {
+    "environment": "trn"
+  },
+  "tomcatinstance": {
+    "java_options": " -Duser.language=pt -Duser.country=BR -Duser.region=BR -XX:PermSize=512m -XX:MaxPermSize=512m -Xms4g -Xmx4g",
+    "port": [
+      "8400",
+      "8410",
+      "8420",
+      "8502",
+      "8440"
+    ]
+  },
+  "install_app": {
+    "product": [
+      {"name":"apoio","initials": "APOIO","type":["forms"],"version": "01.289.1","port": "8400"},
+      {"name":"atendimento","initials":"ATEND","type": ["forms"],"version": "01.289.9","port": "8400"},
+      {"name":"controladoria","initials":"CONTR","type": ["forms"],"version": "01.289.8","port": "8400"},
+      {"name":"diagnostico","initials":"DIAGN","type": ["forms"],"version": "01.289.11","port": "8400"},
+      {"name":"diagnostico-ws","initials":"DIAGN-WS","type": ["forms"],"version": "01.002","port": "8400"},
+      {"name":"faturamento-convenio","initials":"FATUR-CONV","type": ["forms"],"version": "01.289.11","port": "8400"},
+      {"name":"faturamento-sus","initials":"FATUR-SUS","type": ["forms"],"version": "01.289","port": "8400"},
+      {"name":"financeiro","initials":"FINAN","type": ["forms"],"version": "01.289.11","port": "8400"},
+      {"name":"global","initials":"GLOBAL","type": ["forms"],"version": "01.289.6","port": "8400"},
+      {"name":"internacao","initials":"INTER","type": ["forms"],"version": "01.289.11","port": "8400"},
+      {"name":"suprimentos","initials":"SUPRI","type": ["forms"],"version": "01.289.11","port": "8400"},
+      {"name":"mvpep","initials":"SMA-PEP","type": ["forms"],"version": "02.060.1","port": "8420"},
+      {"name":"mveditor","initials":"LIBERTY","type": ["forms"],"version": "02.056","port": "8420"},
+      {"name":"pagu","initials":"PAGU","type": ["forms"],"version": "02.060","port": "8420"},
+      {"name":"mvautenticador-cas","initials":"AUTENTICAD","type":["forms"],"version":"02.003","port":"8502"},
+
+      {"name":"apoio","initials": "APOIO","type":["reports"],"version": "01.289.1","port": "8410"},
+      {"name":"atendimento","initials":"ATEND","type": ["reports"],"version": "01.289.9","port": "8410"},
+      {"name":"controladoria","initials":"CONTR","type": ["reports"],"version": "01.289.8","port": "8410"},
+      {"name":"diagnostico","initials":"DIAGN","type": ["reports"],"version": "01.289.11","port": "8410"},
+      {"name":"faturamento-convenio","initials":"FATUR-CONV","type": ["reports"],"version": "01.289.11","port": "8410"},
+      {"name":"faturamento-sus","initials":"FATUR-SUS","type": ["reports"],"version": "01.289","port": "8410"},
+      {"name":"financeiro","initials":"FINAN","type": ["reports"],"version": "01.289.11","port": "8410"},
+      {"name":"global","initials":"GLOBAL","type": ["reports"],"version": "01.289.6","port": "8410"},
+      {"name":"internacao","initials":"INTER","type": ["reports"],"version": "01.289.11","port": "8410"},
+      {"name":"suprimentos","initials":"SUPRI","type": ["reports"],"version": "01.289.11","port": "8410"},
+      {"name":"pagu","initials":"PAGU","type": ["reports"],"version": "02.060","port": "8420"}
+    ]
+  },
+  "config_variables": {
+    "AUTENTICAD_context": "mvautenticador-cas",
+
+    "balancer_host": "ec2-52-200-8-179.compute-1.amazonaws.com",
+    "balancer_port": "80",
+
+    "database_dialect": "org.hibernate.dialect.Oracle10gDialect",
+    "database_driverclassname": "oracle.jdbc.driver.OracleDriver",
+    "database_host": "10.0.1.169",
+    "database_hostport": "10.0.1.169:1521;10.0.1.169:1521",
+    "database_password": "peps4m",
+    "database_port": "1521",
+    "database_servicename": "cl001trn",
+    "database_servicename_always_filled": "cl001trn",
+    "database_url": "jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.0.1.169)(PORT=1521))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=cl001trn)))",
+    "database_username": "acessptrn",
+
+    "LIBERTY_context": "mveditor",
+
+    "mv_path_artifacts": "_VERIFIQUE_",
+    "mv_path_conf": "_VERIFIQUE_",
+    "mv_path_dbc": "_VERIFIQUE_",
+
+    "product_context": "_VERIFIQUE_",
+    "product_dbc_name": "fwsoul",
+    "product_dbc_version": "02.007.3",
+    "product_name": "_VERIFIQUE_",
+    "product_report_context": "_VERIFIQUE_",
+    "product_report_host": "ec2-52-200-8-179.compute-1.amazonaws.com",
+    "product_report_port": "_VERIFIQUE_",
+    "product_version": "_VERIFIQUE_",
+
+    "PAGU_context": "pagu",
+    "PAGU_report_context": "apoio",
+    "PAGU_report_host": "ec2-52-200-8-179.compute-1.amazonaws.com",
+    "PAGU_report_port": "8190",
+
+    "SOULMV_report_host": "ec2-52-200-8-179.compute-1.amazonaws.com"
+  },
+  "run_list": [
+    "recipe[soulmvlinux::create_install_directories]",
+    "recipe[soulmvlinux::install_jdk]",
+    "recipe[soulmvlinux::install_tomcat_home]",
+    "recipe[soulmvlinux::download_and_extract]",
+    "recipe[soulmvlinux::create_tomcat_instance]",
+    "recipe[soulmvlinux::copy_apps]",
+    "recipe[soulmvlinux::copy_properties]"
+  ]
+}

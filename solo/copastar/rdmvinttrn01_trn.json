@@ -1,0 +1,16 @@
+{
+  "soulmvlinux": {
+    "urlbase": "http://rdmverphml01.rededor.corp",
+    "environment": "trn"
+  },
+  "tomcatinstance": {
+    "java_options": " -Duser.language=pt -Duser.country=BR -Duser.region=BR -XX:PermSize=512m -XX:MaxPermSize=512m -Xms4g -Xmx4g",
+    "port": [
+      "8080"
+    ]
+  },
+  "run_list": [
+    "recipe[soulmvlinux::create_install_directories]",
+    "recipe[soulmvlinux::install_jdk]",
+    "recipe[soulmvlinux::install_tomcat_home]"  ]
+}

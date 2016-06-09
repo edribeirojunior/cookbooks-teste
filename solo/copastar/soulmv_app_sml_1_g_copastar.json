@@ -1,0 +1,89 @@
+{
+  "soulmvlinux": {
+    "urlbase": "http://RDMVERPHML01.rededor.corp"
+  },
+  "tomcatinstance": {
+    "environment": "sml",
+    "port": [
+      "8180","8190","8120","8130","8060","8070","8140","8150","8020","8030",
+      "8040","8050","8100","8110","8000","8010","8160","8170","8080","8090",
+      "8250","8500","8340"
+    ]
+  },
+  "install_app": {
+    "product": [
+      {"name":"apoio","initials": "APOIO","type":["forms"],"version": "01.289","port": "8180"},
+      {"name":"apoio","initials": "APOIO","type":["reports"],"version": "01.289","port": "8190"},
+      {"name":"atendimento","initials":"ATEND","type": ["forms"],"version": "01.289","port": "8120"},
+      {"name":"atendimento","initials":"ATEND","type": ["reports"],"version": "01.289","port": "8130"},
+      {"name":"controladoria","initials":"CONTR","type": ["forms"],"version": "01.289","port": "8060"},
+      {"name":"controladoria","initials":"CONTR","type": ["reports"],"version": "01.289","port": "8070"},
+      {"name":"diagnostico","initials":"DIAGN","type": ["forms"],"version": "01.289","port": "8140"},
+      {"name":"diagnostico","initials":"DIAGN","type": ["reports"],"version": "01.289","port": "8150"},
+      {"name":"faturamento-convenio","initials":"FATUR-CONV","type": ["forms"],"version": "01.289","port": "8020"},
+      {"name":"faturamento-convenio","initials":"FATUR-CONV","type": ["reports"],"version": "01.289","port": "8030"},
+      {"name":"faturamento-sus","initials":"FATUR-SUS","type": ["forms"],"version": "01.289","port": "8040"},
+      {"name":"faturamento-sus","initials":"FATUR-SUS","type": ["reports"],"version": "01.289","port": "8050"},
+      {"name":"financeiro","initials":"FINAN","type": ["forms"],"version": "01.289","port": "8100"},
+      {"name":"financeiro","initials":"FINAN","type": ["reports"],"version": "01.289","port": "8110"},
+      {"name":"global","initials":"GLOBAL","type": ["forms"],"version": "01.289","port": "8000"},
+      {"name":"global","initials":"GLOBAL","type": ["reports"],"version": "01.289","port": "8010"},
+      {"name":"internacao","initials":"INTER","type": ["forms"],"version": "01.289","port": "8160"},
+      {"name":"internacao","initials":"INTER","type": ["reports"],"version": "01.289","port": "8170"},
+      {"name":"suprimentos","initials":"SUPRI","type": ["forms"],"version": "01.289","port": "8080"},
+      {"name":"suprimentos","initials":"SUPRI","type": ["reports"],"version": "01.289","port": "8090"},
+      {"name":"mvpep","initials":"SMA-PEP","type": ["forms"],"version": "02.060","port": "8250"},
+      {"name":"mveditor","initials":"LIBERTY","type": ["forms"],"version": "02.056","port": "8250"},
+      {"name":"pagu","initials":"PAGU","type": ["forms"],"version": "02.060","port": "8250"},
+      {"name":"mvautenticador-cas","initials":"AUTENTICAD","type":["forms"],"version":"02.006.2","port":"8500"}
+    ]
+  },
+  "config_variables": {
+    "AUTENTICAD_context": "mvautenticador-cas",
+
+    "balancer_host": "rdmverphml01.rededor.corp",
+    "balancer_port": "80",
+
+    "database_dialect": "org.hibernate.dialect.Oracle10gDialect",
+    "database_driverclassname": "oracle.jdbc.driver.OracleDriver",
+    "database_host": "10.25.35.62",
+    "database_hostport": "10.25.35.62:1521;10.25.35.62:1521",
+    "database_password": "peps4m",
+    "database_port": "1521",
+    "database_servicename": "pjstarmv",
+    "database_servicename_always_filled": "pjstarmv",
+    "database_url": "jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.25.35.62)(PORT=1521))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=pjstarmv)))",
+    "database_username": "acessosml",
+
+    "LIBERTY_context": "mveditor",
+
+    "mv_path_artifacts": "_VERIFIQUE_",
+    "mv_path_conf": "_VERIFIQUE_",
+    "mv_path_dbc": "_VERIFIQUE_",
+
+    "product_context": "_VERIFIQUE_",
+    "product_dbc_name": "fwsoul",
+    "product_dbc_version": "02.007.3",
+    "product_name": "_VERIFIQUE_",
+    "product_report_context": "_VERIFIQUE_",
+    "product_report_host": "rdmverphml01.rededor.corp",
+    "product_report_port": "_VERIFIQUE_",
+    "product_version": "_VERIFIQUE_",
+
+    "PAGU_context": "pagu",
+    "PAGU_report_context": "apoio",
+    "PAGU_report_host": "rdmverphml01.rededor.corp",
+    "PAGU_report_port": "8190",
+
+    "SOULMV_report_host": "rdmverphml01.rededor.corp"
+  },
+  "run_list": [
+    "recipe[soulmvlinux::create_install_directories]",
+    "recipe[soulmvlinux::install_jdk]",
+    "recipe[soulmvlinux::install_tomcat_home]",
+    "recipe[soulmvlinux::download_and_extract]",
+    "recipe[soulmvlinux::create_tomcat_instance]",
+    "recipe[soulmvlinux::copy_apps]",
+    "recipe[soulmvlinux::copy_properties]"
+  ]
+}

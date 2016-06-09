@@ -1,0 +1,12 @@
+{
+  "dados": {
+    "mv::path.conf": "/MV/app/soulmv_prd/conf",
+    "mv::path.artifacts": "/MV/app/soulmv_prd/product",
+    "mv::path.dbc": "/MV/app/soulmv_prd/dbc",
+    "product::context": "suprimentos",
+    "product::version": "1.0.289",
+    "product::dbc.name": "fwsoul",
+    "product::dbc.version": "0.2.1",
+    "product::name": "teste-santo"
+  }
+}

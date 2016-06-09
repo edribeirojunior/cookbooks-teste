@@ -1,0 +1,42 @@
+{
+  "soulmvlinux": {
+    "urlbase": "http://192.168.4.194"
+  },
+  "tomcatinstance": {
+    "environment": "sml",
+    "port": [
+      "8180",
+      "8020",
+      "8030"
+    ]
+  },
+  "install_app": {
+    "product": [
+      {"name":"apoio","initials": "APOIO","type":["forms"],"version": "01.289","port": "8300"},
+      {"name":"atendimento","initials":"ATEND","type": ["forms"],"version": "01.289","port": "8300"},
+      {"name":"controladoria","initials":"CONTR","type": ["forms"],"version": "01.289","port": "8300"},
+      {"name":"diagnostico","initials":"DIAGN","type": ["forms"],"version": "01.289","port": "8300"},
+      {"name":"faturamento-convenio","initials":"FATUR-CONV","type": ["forms"],"version": "01.289","port": "8300"},
+      {"name":"faturamento-sus","initials":"FATUR-SUS","type": ["forms"],"version": "01.289","port": "8300"},
+      {"name":"financeiro","initials":"FINAN","type": ["forms"],"version": "01.289","port": "8300"},
+      {"name":"global","initials":"GLOBAL","type": ["forms"],"version": "01.289","port": "8300"},
+      {"name":"internacao","initials":"INTER","type": ["forms"],"version": "01.289","port": "8300"},
+      {"name":"suprimentos","initials":"SUPRI","type": ["forms"],"version": "01.289","port": "8300"},
+      {"name":"plano","initials":"PLANO","type": ["forms"],"version": "01.289","port": "8300"},
+      {"name":"apoio","initials": "APOIO","type":["reports"],"version": "01.289","port": "8310"},
+      {"name":"atendimento","initials":"ATEND","type": ["reports"],"version": "01.289","port": "8310"},
+      {"name":"controladoria","initials":"CONTR","type": ["reports"],"version": "01.289","port": "8310"},
+      {"name":"diagnostico","initials":"DIAGN","type": ["reports"],"version": "01.289","port": "8310"},
+      {"name":"faturamento-convenio","initials":"FATUR-CONV","type": ["reports"],"version": "01.289","port": "8310"},
+      {"name":"faturamento-sus","initials":"FATUR-SUS","type": ["reports"],"version": "01.289","port": "8310"},
+      {"name":"financeiro","initials":"FINAN","type": ["reports"],"version": "01.289","port": "8310"},
+      {"name":"global","initials":"GLOBAL","type": ["reports"],"version": "01.289","port": "8310"},
+      {"name":"internacao","initials":"INTER","type": ["reports"],"version": "01.289","port": "8310"},
+      {"name":"suprimentos","initials":"SUPRI","type": ["reports"],"version": "01.289","port": "8310"},
+      {"name":"plano","initials":"PLANO","type": ["reports"],"version": "01.289","port": "8310"},
+      {"name":"mvpep","initials":"SMA-PEP","type": ["forms"],"version": "01.289","port": "8320"},
+      {"name":"mvpep","initials":"LIBERTY","type": ["forms"],"version": "01.289","port": "8320"},
+      {"name":"mvpep","initials":"PAGU","type": ["forms"],"version": "01.289","port": "8320"}
+    ]
+  }
+}
