@@ -1,33 +1,40 @@
 {
   "MICRODATA": {
       "PROD": [
-          {"name":"iDCE","path":"iDCE","version":"_2016.5.1.6"},
-          {"name":"iDCE.Servico","path":"iDCE.Servico","version":"_2016.5.1.6"},
-          {"name":"mPacs","path": "mPacs","version":"_2015.2.6.40","_Servico"},
-          {"name":"mReportBuilder","path": "mReportBuilder","version":".1"},
-          {"name":"mUpdater","path":"mUpdater","version":"Servico"},
-          {"name":"mEntrega","path":"mEntrega","version":"_2016.5.1.6"},
-          {"name":"mConnect","path":"mConnect\\Viewer","version":"_2013.1.6.9-2"},
-          {"name":"mCockpit","path":"mCockpit","version":"_2016.5.1.6"},
-          {"name":"PortalExames","path":"PortalExames","version":"_4.0"}
+          {"name":"iDCE","path":"\\iDCE","version":"_2016.5.1.6.rar"},
+          //{"name":"iDCE.Servico","path":"\\iDCE.Servico","version":"_2016.5.1.6.rar"},
+          {"name":"mPacs","path": "\\mPacs","version": "_2015.2.6.40.rar"},
+          {"name":"mReportBuilder","path": "\\mReportBuilder","version":".1.rar"},
+          {"name":"mUpdater","path":"\\mUpdater","version":"Servico.rar"},
+          {"name":"mEntrega","path":"\\mEntrega","version":"_2016.5.1.6.rar"},
+          {"name":"mConnect","path":"\\mConnect\\Viewer","version":"_2013.1.6.9-2.rar"},
+          {"name":"mCockpit","path":"\\mCockpit","version":"_2016.5.1.6.rar"},
+          {"name":"PortalExames","path":"\\PortalExames","version":"_4.0.rar"}
       ],
       "IISPATH": "C:\\inetpub\\wwwroot\\",
       "TEMPATH": "C:\\Temp\\"
 
-  }
+  },
   "config_variables": {
-     "path_name":"_VERIFIQUE",
-     "port":"81"
+     "path_name" : "_VERIFIQUE",
+     "port" : 81
  },
+  "Service": {
+     "PROD": [
+         {"name":"iDCE.Servico","path":"\\iDCE.Servico","version":"_2016.5.6.rar"},
+         {"name":"mPacs","path":"\\mPacs.Servico","version":"_Servico.rar"}
+
+     ]
+  },
 
   "run_list": [
   "recipe[microdata::deleteDirAPP]",
   "recipe[microdata::deleteDirIIS]",
   "recipe[microdata::createNet35]",
   "recipe[microdata::createIIS]",
-  "recipe[microdata::download_and_extract",
-  "recipe[microdata::install_setup",
-  "recipe[microdata::createSiteIIS]",
+  "recipe[microdata::download_and_extract]",
+  "recipe[microdata::install_setup]",
+  "recipe[microdata::createSiteIIS]"
   ]
 
 }

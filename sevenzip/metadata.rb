@@ -1,4 +1,4 @@
-name             'seven_zip'
+name             'sevenzip'
 maintainer       'Shawn Neal'
 maintainer_email 'sneal@sneal.net'
 license          'Apache 2.0'

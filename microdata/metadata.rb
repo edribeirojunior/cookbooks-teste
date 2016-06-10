@@ -1,6 +1,6 @@
 name             'microdata'
 maintainer       'MV Sistemas'
-maintainer_email 'edson.junior@mv.com.br  '
+maintainer_email 'edson.junior@mv.com.br'
 license          'All rights reserved'
 description      'Installs/Configures sgtdeploy'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))

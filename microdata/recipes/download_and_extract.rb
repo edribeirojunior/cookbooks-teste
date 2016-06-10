@@ -1,3 +1,6 @@
+
+depends 'sevenzip'
+
 node['MICRODATA']['PROD'].each do |lyr|
 
   directory 'C:\\Temp' do
@@ -11,6 +14,5 @@ node['MICRODATA']['PROD'].each do |lyr|
     overwrite true
     action :extract
   end
-
 
 end

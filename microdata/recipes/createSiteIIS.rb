@@ -20,7 +20,7 @@ node['MICRODATA']['PROD'].each do |lyr|
 	iis_site "Microdata" do
 	  application_pool "DefaultAppPool"
 	  protocol :http
-	  port "#{node['config_variables']['port']}"
+	  port node['config_variables']['port']
 	  host_header "Microdata"
 	  path "#{inetpub}"
 	  action [:add,:start]
@@ -28,11 +28,14 @@ node['MICRODATA']['PROD'].each do |lyr|
 
   # Cria os produtos Microdata no site Microdata, identificados pelos produtos cadastrados
 
-  iis_app "#{lyr[1]}" do
+  physical_path = "#{lyr['path']}"
+
+
+  iis_app {lyr[1]} do
     site_name "Microdata"
     path node "/#{lyr[1]}"
     application_pool "#{lyr[1]}"
-    physical_path "#{node['MICRODATA']['PROD']/}#{lyr['path']}}"
+    physical_path "#{node['MICRODATA']['PROD']}#{physical_path}"
     enabled_protocols :http
     action :add
   end
