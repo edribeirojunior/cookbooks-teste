@@ -1,0 +1,20 @@
+{
+  "MICRODATA":{
+      "PROD": [
+          {"name":"iDCE","path":"iDCE"},
+          {"name":"mPacs","path": "mPacs"},
+          {"name":"mReportBuilder","path": "mReportBuilder"},
+          {"name":"mUpdater","path":"mUpdater"},
+          {"name":"mEntrega","path":"mEntrega"},
+          {"name":"mConnect","path":"mConnect"},
+          {"name":"mCockpit","path":"mCockpit"},
+          {"name":"PortalExames","path":"PortalExames"}
+      ],
+  "IISPATH": "C:\inetpub\wwwroot"
+  }
+
+
+
+
+
+}

@@ -11,12 +11,13 @@ node['MICRODATA']['PROD'].each do |lyr|
 	# create and start a new site that maps to
 	# the physical location C:\inetpub\wwwroot\mysite
 	# and uses the 'my_app_pool' application pool
+  inetpub = "#{node['MICRODATA']['IISPATH']}"
 	iis_site "Microdata" do
 	  application_pool "DefaultAppPool"
 	  protocol :http
-	  port 81
+	  port
 	  host_header "Microdata"
-	  path "C:\\inetpub\\wwwroot"
+	  path "#{inetpub}"
 	  action [:add,:start]
   end
 
@@ -26,7 +27,7 @@ node['MICRODATA']['PROD'].each do |lyr|
     site_name "Microdata"
     path node "/#{lyr[1]}"
     application_pool "#{lyr[1]}"
-    physical_path "#{node['MICRODATA']['PROD']"#{lyr[1]}"['PATH']}"
+    physical_path "#{node['MICRODATA']['PROD']/}#{lyr[1]}}"
     enabled_protocols :http
     action :add
   end
