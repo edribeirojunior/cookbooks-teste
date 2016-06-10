@@ -14,7 +14,7 @@ node['MICRODATA']['PROD'].each do |lyr|
 	iis_site "Microdata" do
 	  application_pool "DefaultAppPool"
 	  protocol :http
-	  port 81
+	  port "#{node['MICRODATA']['CONFIG']['PORT']}"
 	  host_header "Microdata"
 	  path "C:\\inetpub\\wwwroot"
 	  action [:add,:start]
