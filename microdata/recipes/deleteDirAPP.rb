@@ -1,4 +1,4 @@
-directory 'C:\\Aplicativos_Navita\\Navita.NGN.APP' do
+directory 'C:\\Microdata\\' do
   action :delete
   recursive true
 end

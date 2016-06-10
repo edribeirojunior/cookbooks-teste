@@ -1,5 +1,5 @@
 name             'microdata'
-maintainer       'Mv Sistemas'
+maintainer       'MV Sistemas'
 maintainer_email 'edson.junior@mv.com.br  '
 license          'All rights reserved'
 description      'Installs/Configures sgtdeploy'

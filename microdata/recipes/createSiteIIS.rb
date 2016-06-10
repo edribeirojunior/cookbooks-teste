@@ -1,4 +1,6 @@
-node['SGT']['CONGLOMERADOS'].each do |lyr|
+##Create Site IIS
+
+node['MICRODATA']['PROD'].each do |lyr|
 	#Create an app pool
 	iis_pool "#{lyr[1]}" do
 	  runtime_version "4.0"
@@ -9,12 +11,23 @@ node['SGT']['CONGLOMERADOS'].each do |lyr|
 	# create and start a new site that maps to
 	# the physical location C:\inetpub\wwwroot\mysite
 	# and uses the 'my_app_pool' application pool
-	iis_site "#{lyr[1]}" do
-	  application_pool "#{lyr[1]}"
+	iis_site "Microdata" do
+	  application_pool "DefaultAppPool"
 	  protocol :http
-	  port 80
-	  host_header "#{lyr[1]}"
-	  path "C:\\Aplicativos_Navita\\#{lyr[1]}"
+	  port 81
+	  host_header "Microdata"
+	  path "C:\\inetpub\\wwwroot"
 	  action [:add,:start]
-	end
+  end
+
+  # Creates a new app
+
+  iis_app "#{lyr[1]}" do
+    site_name "Microdata"
+    path node "/#{lyr[1]}"
+    application_pool "#{lyr[1]}"
+    physical_path "#{node['MICRODATA']['PROD']"#{lyr[1]}"['PATH']}"
+    enabled_protocols :http
+    action :add
+  end
 end

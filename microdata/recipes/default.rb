@@ -1,8 +1,8 @@
 #
-# Cookbook Name:: sgt3
+# Cookbook Name:: Microdata
 # Recipe:: default
 #
-# Copyright 2015, YOUR_COMPANY_NAME
+# Copyright 2016, Mv Sistemas
 #
 # All rights reserved - Do Not Redistribute
 #
