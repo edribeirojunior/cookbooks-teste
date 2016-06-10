@@ -1,20 +1,33 @@
 {
-  "MICRODATA":{
+  "MICRODATA": {
       "PROD": [
-          {"name":"iDCE","path":"iDCE"},
-          {"name":"mPacs","path": "mPacs"},
-          {"name":"mReportBuilder","path": "mReportBuilder"},
-          {"name":"mUpdater","path":"mUpdater"},
-          {"name":"mEntrega","path":"mEntrega"},
-          {"name":"mConnect","path":"mConnect"},
-          {"name":"mCockpit","path":"mCockpit"},
-          {"name":"PortalExames","path":"PortalExames"}
+          {"name":"iDCE","path":"iDCE","version":"_2016.5.1.6"},
+          {"name":"iDCE.Servico","path":"iDCE.Servico","version":"_2016.5.1.6"},
+          {"name":"mPacs","path": "mPacs","version":"_2015.2.6.40","_Servico"},
+          {"name":"mReportBuilder","path": "mReportBuilder","version":".1"},
+          {"name":"mUpdater","path":"mUpdater","version":"Servico"},
+          {"name":"mEntrega","path":"mEntrega","version":"_2016.5.1.6"},
+          {"name":"mConnect","path":"mConnect\\Viewer","version":"_2013.1.6.9-2"},
+          {"name":"mCockpit","path":"mCockpit","version":"_2016.5.1.6"},
+          {"name":"PortalExames","path":"PortalExames","version":"_4.0"}
       ],
-  "IISPATH": "C:\inetpub\wwwroot"
+      "IISPATH": "C:\\inetpub\\wwwroot\\",
+      "TEMPATH": "C:\\Temp\\"
+
   }
+  "config_variables": {
+     "path_name":"_VERIFIQUE",
+     "port":"81"
+ },
 
-
-
-
+  "run_list": [
+  "recipe[microdata::deleteDirAPP]",
+  "recipe[microdata::deleteDirIIS]",
+  "recipe[microdata::createNet35]",
+  "recipe[microdata::createIIS]",
+  "recipe[microdata::download_and_extract",
+  "recipe[microdata::install_setup",
+  "recipe[microdata::createSiteIIS]",
+  ]
 
 }
