@@ -2,12 +2,13 @@
 
 windows_feature 'IIS-WebServerRole' do
   action :install
-  all true
+  provider Chef::Provider::WindowsFeature::DISM:
 end
 
 windows_feature 'IIS-WebServer' do
   action :install
-  all true
+  #all true
+  provider Chef::Provider::WindowsFeature::DISM:
 end
 
 #windows_feature 'IIS-CommonHttpFeatures' do
@@ -39,4 +40,3 @@ end
 #  action :install
 #  all true
 #end
-

@@ -28,10 +28,10 @@
 
   "Install": {
       "PROD": [
-          {"name":"mEntrega","setup":"Setup Módulo de Entrega 2016.5.1.6.exe"},
-          {"name":"mCockpit","setup":"Setup mCockpit 2016.5.1.6.exe"},
-          {"name":"mUpdater","setup":["setup.exe","mUpdater.Servico.Install.msi"]},
-          {"name":"mPacs","setup":["mPacs.msi","setup.exe"]}
+          {"name":"mEntrega","setupexe":"Setup Módulo de Entrega 2016.5.1.6.exe"},
+          {"name":"mCockpit","setupexe":"Setup mCockpit 2016.5.1.6.exe"},
+          {"name":"mUpdater","setupexe":"setup","setupmsi":"mUpdater.Servico.Install.msi"},
+          {"name":"mPacs.Servico","setupexe":"setup.exe","setupmsi":"mPacs.msi"}
       ]
   },
 
