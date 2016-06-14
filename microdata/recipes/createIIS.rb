@@ -1,48 +1,6 @@
 ##Install Windows Features
 powershell_script 'Install IIS' do
-  code 'Add-WindowsFeature Web-Server'
+  code 'Add-WindowsFeature Web-Server -IncludeAllSubFeature'
   guard_interpreter :powershell_script
   not_if "(Get-WindowsFeature -Name Web-Server).Installed"
 end
-
-
-#windows_feature 'IIS-WebServerRole' do
-#  action :install
-#  provider Chef::Provider::WindowsFeature::DISM:
-#end
-
-#windows_feature 'IIS-WebServer' do
-#  action :install
-#  #all true
-#  provider Chef::Provider::WindowsFeature::DISM:
-#end
-
-#windows_feature 'IIS-CommonHttpFeatures' do
-#  action :install
-#  feature_name 'IIS-StaticContent','IIS-DefaultDocument','IIS-DirectoryBrowsing','IIS-HttpErrors'
-#end
-
-#windows_feature 'IIS-ApplicationDevelopment' do
-#  action :install
-#  all true
-#end
-
-#windows_feature 'IIS-HealthAndDiagnostics' do
-#  action :install
-#  feature_name 'IIS-HttpLogging','IIS-RequestMonitor'
-#end
-
-#windows_feature 'IIS-Security' do
-#  action :install
-#  windows_feature 'IIS-RequestFiltering'
-#end
-
-#windows_feature 'IIS-Performance' do
-#  action :install
-#  all true
-#end
-
-#windows_feature 'IIS-WebServerManagementTools' do
-#  action :install
-#  all true
-#end

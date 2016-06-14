@@ -1,15 +1,17 @@
 {
   "MICRODATA": {
       "PROD": [
-          {"name":"iDCE","path":"\\iDCE","version":"_2016.5.1.6.rar"},
-          {"name":"mPacs","path": "\\mPacs","version": "_2015.2.6.40.rar"},
+          {"name":"iDCE","path":"\\iDCE","version":"_2016.5.1.6.rar","subfolder":"IDCE_mCockpit"},
+          {"name":"mPacs","path": "\\mPacs","version": "_2015.2.6.40.rar","subfolder":"mPacs2.0"},
           {"name":"mReportBuilder","path": "\\mReportBuilder","version":".1.rar"},
           {"name":"mUpdater","path":"\\mUpdater","version":"Servico.rar"},
           {"name":"mEntrega","path":"\\mEntrega","version":"_2016.5.1.6.rar"},
           {"name":"mConnect","path":"\\mConnect\\Viewer","version":"_2013.1.6.9-2.rar"},
           {"name":"mCockpit","path":"\\mCockpit","version":"_2016.5.1.6.rar"},
-          {"name":"PortalExames","path":"\\PortalExames","version":"_4.0.rar"}
+          {"name":"PortalExames","path":"\\PortalExames","version":"_4.0.rar","subfolder":["Client","WS"]}
       ],
+      "SITE":"Microdata",
+      ""
       "IISPATH": "C:\\inetpub\\wwwroot\\",
       "TEMPATH": "C:\\Temp\\"
 
@@ -20,7 +22,7 @@
  },
   "Service": {
      "PROD": [
-         {"name":"iDCE.Servico","path":"\\iDCE.Servico","version":"_2016.5.6.rar"},
+         {"name":"iDCE","path":"\\iDCE.Servico","version":"_2016.5.6.rar","subfolder":"idce_servico_mcockpit"},
          {"name":"mPacs","path":"\\mPacs.Servico","version":"_Servico.rar"}
 
      ]
@@ -38,11 +40,13 @@
   "run_list": [
   "recipe[microdata::deleteDirAPP]",
   "recipe[microdata::deleteDirIIS]",
-  "recipe[microdata::createDirMicrodata]",
-  "recipe[microdata::createDirIIS]",
+  "recipe[microdata::deleteSiteIIS]",
+  "recipe[microdata::stopAppPoolIIS]",
   "recipe[microdata::createNet35]",
   "recipe[microdata::createIIS]",
+  "recipe[microdata::createDirMicrodata]",
   "recipe[microdata::download_and_extract]",
+  "recipe[microdata::copyDirApp]",
   "recipe[microdata::install_setup]",
   "recipe[microdata::createSiteIIS]"
   ]

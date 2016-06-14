@@ -17,11 +17,11 @@ node['MICRODATA']['PROD'].each do |lyr|
 
   # Cria o site Microdata
 
-	iis_site "Microdata" do
+	iis_site "#{node['MICRODATA']['SITE']}" do
 	  application_pool "DefaultAppPool"
 	  protocol :http
 	  port node['config_variables']['port']
-	  host_header "Microdata"
+	  host_header "node['MICRODATA']['SITE']"
 	  path "#{inetpub}"
 	  action [:add,:start]
   end

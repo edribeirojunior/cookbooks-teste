@@ -1,5 +1,5 @@
-node['SGT']['CONGLOMERADOS'].each do |lyr|
-  iis_pool "#{lyr[1]}" do
-    action :stop
+node['MICRODATA']['PROD'].each do |lyr|
+  iis_pool "#{lyr['name']}" do
+    action [:stop, :delete]
   end
 end

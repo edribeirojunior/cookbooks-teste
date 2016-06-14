@@ -1,5 +1,5 @@
 node['MICRODATA']['PROD'].each do |lyr|
-	directory 'C:\\inetpub\\wwwroot\\Microdata\\'"#{lyr[1]}" do
+	directory 'C:\\inetpub\\wwwroot\\Microdata\\'"#{lyr['name']}" do
 		action :delete
 		recursive true
   end
