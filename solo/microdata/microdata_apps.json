@@ -11,7 +11,6 @@
           {"name":"PortalExames","path":"\\PortalExames","version":"_4.0.rar","subfolder":["Client","WS"]}
       ],
       "SITE":"Microdata",
-      ""
       "IISPATH": "C:\\inetpub\\wwwroot\\",
       "TEMPATH": "C:\\Temp\\"
 
@@ -46,9 +45,10 @@
   "recipe[microdata::createIIS]",
   "recipe[microdata::createDirMicrodata]",
   "recipe[microdata::download_and_extract]",
-  "recipe[microdata::copyDirApp]",
+  "recipe[microdata::copyDirAPP]",
   "recipe[microdata::install_setup]",
-  "recipe[microdata::createSiteIIS]"
+  "recipe[microdata::createAppPool]",
+  "recipe[microdata::createSite]"
   ]
 
 }
