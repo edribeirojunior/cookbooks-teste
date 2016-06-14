@@ -2,7 +2,6 @@
   "MICRODATA": {
       "PROD": [
           {"name":"iDCE","path":"\\iDCE","version":"_2016.5.1.6.rar"},
-          //{"name":"iDCE.Servico","path":"\\iDCE.Servico","version":"_2016.5.1.6.rar"},
           {"name":"mPacs","path": "\\mPacs","version": "_2015.2.6.40.rar"},
           {"name":"mReportBuilder","path": "\\mReportBuilder","version":".1.rar"},
           {"name":"mUpdater","path":"\\mUpdater","version":"Servico.rar"},
@@ -27,9 +26,19 @@
      ]
   },
 
+  "Install": {
+      "PROD": [
+          {"name":"mEntrega","setup":"Setup Módulo de Entrega 2016.5.1.6.exe"},
+          {"name":"mCockpit","setup":"Setup mCockpit 2016.5.1.6.exe"},
+          {"name":"mUpdater","setup":["setup.exe","mUpdater.Servico.Install.ms"]},
+          {"name":"mPacs","setup":["mPacs.msi","setup.exe"]}
+      ]
+  },
+
   "run_list": [
   "recipe[microdata::deleteDirAPP]",
   "recipe[microdata::deleteDirIIS]",
+  "recipe[microdata::createDirIIS]",
   "recipe[microdata::createNet35]",
   "recipe[microdata::createIIS]",
   "recipe[microdata::download_and_extract]",

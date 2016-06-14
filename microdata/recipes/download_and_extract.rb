@@ -17,7 +17,7 @@ end
 node['Service']['PROD'].each do |service|
 
   seven_zip_archive "#{node['Service']['PROD']}#{service['name']}" do
-    path      "#{node['MICRODATA']['TEMPATH']}#{service['name']}"
+    path      "#{node['MICRODATA']['TEMPATH']}#{service['path']}"
     source    "#{node['MICRODATA']['TEMPATH']}#{service['name']}#{service['version']}"
     overwrite true
     action :extract

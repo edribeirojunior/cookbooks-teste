@@ -5,7 +5,7 @@
 node['MICRODATA']['PROD'].each do |lyr|
 
 	# Cria pool de acrodo com prod
-	iis_pool "#{lyr[1]}" do
+	iis_pool "#{lyr['name']}" do
 	  runtime_version "4.0"
 	  pipeline_mode :Integrated
 	  action :add
@@ -31,10 +31,10 @@ node['MICRODATA']['PROD'].each do |lyr|
   physical_path = "#{lyr['path']}"
 
 
-  iis_app {lyr[1]} do
+  iis_app {lyr['name']} do
     site_name "Microdata"
-    path node "/#{lyr[1]}"
-    application_pool "#{lyr[1]}"
+    path node "/#{lyr['name']}"
+    application_pool "#{lyr['name']}"
     physical_path "#{node['MICRODATA']['PROD']}#{physical_path}"
     enabled_protocols :http
     action :add
