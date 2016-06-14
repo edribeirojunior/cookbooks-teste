@@ -30,7 +30,7 @@
       "PROD": [
           {"name":"mEntrega","setup":"Setup Módulo de Entrega 2016.5.1.6.exe"},
           {"name":"mCockpit","setup":"Setup mCockpit 2016.5.1.6.exe"},
-          {"name":"mUpdater","setup":["setup.exe","mUpdater.Servico.Install.ms"]},
+          {"name":"mUpdater","setup":["setup.exe","mUpdater.Servico.Install.msi"]},
           {"name":"mPacs","setup":["mPacs.msi","setup.exe"]}
       ]
   },
@@ -38,6 +38,7 @@
   "run_list": [
   "recipe[microdata::deleteDirAPP]",
   "recipe[microdata::deleteDirIIS]",
+  "recipe[microdata::createDirMicrodata]",
   "recipe[microdata::createDirIIS]",
   "recipe[microdata::createNet35]",
   "recipe[microdata::createIIS]",
