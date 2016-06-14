@@ -1,15 +1,21 @@
 ##Install Windows Features
-
-windows_feature 'IIS-WebServerRole' do
-  action :install
-  provider Chef::Provider::WindowsFeature::DISM:
+powershell_script 'Install IIS' do
+  code 'Add-WindowsFeature Web-Server'
+  guard_interpreter :powershell_script
+  not_if "(Get-WindowsFeature -Name Web-Server).Installed"
 end
 
-windows_feature 'IIS-WebServer' do
-  action :install
-  #all true
-  provider Chef::Provider::WindowsFeature::DISM:
-end
+
+#windows_feature 'IIS-WebServerRole' do
+#  action :install
+#  provider Chef::Provider::WindowsFeature::DISM:
+#end
+
+#windows_feature 'IIS-WebServer' do
+#  action :install
+#  #all true
+#  provider Chef::Provider::WindowsFeature::DISM:
+#end
 
 #windows_feature 'IIS-CommonHttpFeatures' do
 #  action :install
