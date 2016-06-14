@@ -6,8 +6,8 @@ node['MICRODATA']['PROD'].each do |lyr|
 
 # Cria o site Microdata
 
-  iis_site Microdata do
-    application_pool "DefaultAppPool"
+  iis_site 'Microdata' do
+    application_pool 'DefaultAppPool'
     protocol :http
     port node['config_variables']['port']
     host_header "node['MICRODATA']['SITE']"
