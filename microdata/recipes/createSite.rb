@@ -2,7 +2,7 @@ node['MICRODATA']['PROD'].each do |lyr|
 
 # Define a variavel inetpub
 
-  inetpub = "#{node['MICRODATA']['IISPATH']}"
+  inetpub = "#{node['MICRODATA']['IISPATH']}\\Microdata"
 
 # Cria o site Microdata
 
@@ -10,22 +10,22 @@ node['MICRODATA']['PROD'].each do |lyr|
     application_pool 'DefaultAppPool'
     protocol :http
     port node['config_variables']['port']
-    host_header "node['MICRODATA']['SITE']"
+    host_header node['MICRODATA']['SITE']
     path "#{inetpub}"
     action [:add,:start]
   end
 
 # Cria os produtos Microdata no site Microdata, identificados pelos produtos cadastrados
 
-  physical_path = "#{lyr['path']}"
+  physical_path = "#{lyr['name']}"
 
 
   iis_app "#{lyr['name']}" do
     site_name "Microdata"
-    path node "/#{lyr['name']}"
+    path "/#{lyr['name']}"
     application_pool "#{lyr['name']}"
-    physical_path "#{node['MICRODATA']['PROD']}#{physical_path}"
-    enabled_protocols :http
+    physical_path "#{inetpub}#{physical_path}"
+    enabled_protocols "http"
     action :add
   end
 end
