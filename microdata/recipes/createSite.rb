@@ -2,7 +2,7 @@ node['MICRODATA']['PROD'].each do |lyr|
 
 # Define a variavel inetpub
 
-  inetpub = "#{node['MICRODATA']['IISPATH']}\\Microdata"
+  inetpub = "#{node['MICRODATA']['IISPATH']}\\Microdata\\"
 
 # Cria o site Microdata
 

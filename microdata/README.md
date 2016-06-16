@@ -1,4 +1,4 @@
-sgt3 Cookbook
+Microdata Cookbook
 =============
 TODO: Enter the cookbook description here.
 
