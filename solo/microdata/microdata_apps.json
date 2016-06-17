@@ -28,27 +28,30 @@
             {"name":"PortalExames","path":"\\PortalExames","version":"_4.0.rar","subfolder":["Client","WS"]}
         ]
     },
-  "config_variables": {
-     "path_name" : "_VERIFIQUE",
-     "portidce": 1000 ,
-     "port" : 81
- },
-  "Service": {
-     "PROD": [
+    "Service": {
+        "PROD": [
          {"name":"iDCE","path":"\\iDCE.Servico","version":"_2016.5.1.6.rar","subfolder":"idce_servico_mcockpit"},
          {"name":"mPacs","path":"\\mPacs.Servico","version":"_Servico.rar"}
 
      ]
   },
 
-  "Install": {
-      "PROD": [
+    "Install": {
+        "PROD": [
           {"name":"mEntrega","setupexe":"Setup Módulo de Entrega 2016.5.1.6.exe"},
           {"name":"mCockpit","setupexe":"Setup mCockpit 2016.5.1.6.exe"},
-          {"name":"mUpdater","setupexe":"setup","setupmsi":"mUpdater.Servico.Install.msi"},
+          {"name":"mUpdater","setupexe":"setup.exe","setupmsi":"mUpdater.Servico.Install.msi"},
           {"name":"mPacs.Servico","setupexe":"setup.exe","setupmsi":"mPacs.msi"}
       ]
   },
+    "config_variables": {
+        "ipaddress" : "",
+        "path_name" : "_VERIFIQUE",
+        "portidce": 1000 ,
+        "port" : 81 ,
+        "portpe": 83
+    },
+
 
   "run_list": [
   "recipe[microdata::deleteDirAPP]",

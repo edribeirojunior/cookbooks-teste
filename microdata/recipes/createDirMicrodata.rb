@@ -10,7 +10,11 @@ directory 'C:\\inetpub\\wwwroot\\Microdata' do
   rights :full_control, "Everyone", :applies_to_children => true
 end
 
+##Definição variavel
+
 inetpubmicrodata = 'C:\\inetpub\\wwwroot\\Microdata\\'
+
+## Criação das pastas de produtos
 
 node['MICRODATA']['PROD'].each do |lyr|
 

@@ -1,0 +1,10 @@
+angular.module('service')
+        .factory("ExameService", ['$http', function ($http) {
+            var baseUrl = "http://<%= @url_pe_ws %>/ExameService.svc";
+
+            return {
+                ListarUnidade: function () {
+                    return $http.get(baseUrl + "/ListarUnidade");
+                }
+            };
+        } ]);

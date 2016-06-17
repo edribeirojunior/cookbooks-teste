@@ -28,3 +28,8 @@ execute 'Copy mConnect' do
   command "robocopy #{node['MICRODATA']['TEMPATH']}mConnect\\mConnect\\Viewer #{node['MICRODATA']['IISPATH']}\\Microdata\\mConnect\\Viewer /s /COPY:DT"
   returns [0, 1]
 end
+
+execute 'Copy mReportBuilder' do
+  command "robocopy #{node['MICRODATA']['TEMPATH']}mReportBuilder\\ #{node['MICRODATA']['IISPATH']}\\Microdata\\mReportBuilder /s /COPY:DT"
+  returns [0, 1]
+end

@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<configuration>
+    <appSettings>
+        <add key="AppData" value=""/>
+        <add key="UpdateService" value="0"/>
+    </appSettings>
+    <system.web>
+        <compilation debug="true" targetFramework="4.0" />
+    </system.web>
+    <system.serviceModel>
+        <!--Adicionado services para REST-->
+        <bindings>
+            <basicHttpBinding>
+                <binding name="BasicHttpBinding_IEditor" />
+            </basicHttpBinding>
+            <webHttpBinding>
+                <binding name="webBindingConfiguration">
+                    <readerQuotas maxDepth="32" maxStringContentLength="5242880"
+                                  maxArrayLength="2147483646" maxBytesPerRead="4096" maxNameTableCharCount="5242880" />
+                </binding>
+            </webHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://<%= @url_idce_service %>/Editor/Editor.svc" binding="basicHttpBinding"
+                      bindingConfiguration="BasicHttpBinding_IEditor" contract="LaudoRadiologiaService.IEditor"
+                      name="BasicHttpBinding_IEditor" />
+        </client>
+        <serviceHostingEnvironment multipleSiteBindingsEnabled="true" />
+        <services>
+            <service name="MPE.Servico.WCF.AdministracaoService">
+                <endpoint address=""
+                          binding="webHttpBinding"
+                          contract="MPE.Servico.WCF.IAdministracaoService" behaviorConfiguration="webBehavior" />
+
+            </service>
+            <service name="MPE.Servico.WCF.ExameService">
+                <endpoint address=""
+                          binding="webHttpBinding" bindingConfiguration="webBindingConfiguration"
+                          contract="MPE.Servico.WCF.IExameService" behaviorConfiguration="webBehavior" />
+
+            </service>
+        </services>
+        <behaviors>
+            <!--Adicionado endpointBehaviors para REST-->
+            <endpointBehaviors>
+                <behavior name="webBehavior">
+                    <webHttp helpEnabled="true" />
+                </behavior>
+            </endpointBehaviors>
+
+            <serviceBehaviors>
+                <behavior name="Default">
+                    <serviceMetadata httpGetEnabled="true" />
+                </behavior>
+                <behavior name="">
+                    <serviceMetadata httpGetEnabled="true" />
+                    <serviceDebug includeExceptionDetailInFaults="true" />
+                </behavior>
+            </serviceBehaviors>
+        </behaviors>
+    </system.serviceModel>
+    <system.webServer>
+        <modules runAllManagedModulesForAllRequests="true"/>
+    </system.webServer>
+    <system.net>
+        <mailSettings>
+            <smtp>
+                <network host="smtp.gmail.com" port="587" userName="microdatampe@gmail.com" password="micro,123"/>
+            </smtp>
+        </mailSettings>
+    </system.net>
+</configuration>

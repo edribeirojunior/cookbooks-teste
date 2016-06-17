@@ -1,0 +1,40 @@
+angular.module('service')
+        .factory("AdministracaoService", ['$http', function ($http) {
+            var baseUrl = "http://<%= @url_pe_ws %>/AdministracaoService.svc";
+
+            return {
+                ValidarMedico: function (usuario) {
+                    return $http.get(baseUrl + "/ValidarMedico", usuario);
+                },
+                ValidarPaciente: function (usuario) {
+                    return $http.post(baseUrl + "/ValidarPaciente", usuario);
+                },
+                RelembrarSenha: function (usuario) {
+                    return $http.post(baseUrl + "/RelembrarSenhaPaciente", usuario);
+                },
+                ValidarAdmin: function (usuario) {
+                    return $http.post(baseUrl + "/ValidarAdmin", usuario);
+                },
+                ListarSistemas: function () {
+                    return $http.get(baseUrl + "/ListarSistemas");
+                },
+                ListarTipoBancos: function () {
+                    return $http.get(baseUrl + "/ListarTipoBancos");
+                },
+                ListarUnidades: function () {
+                    return $http.get(baseUrl + "/ListarUnidade");
+                },
+                ObterConfiguracao: function () {
+                    return $http.get(baseUrl + "/ObterConfiguracao");
+                },
+                TestarConexaoComBanco: function (banco) {
+                    return $http.post(baseUrl + "/TestarConexaoComBanco", banco);
+                },
+                ListarTipoUsuario: function () {
+                    return $http.get(baseUrl + "/ListarTipoUsuario");
+                },
+                AtualizarConfiguracoes: function (config) {
+                    return $http.post(baseUrl + "/AtualizarConfiguracoes", config);
+                }
+            };
+        } ]);

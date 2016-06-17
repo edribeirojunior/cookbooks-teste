@@ -23,7 +23,6 @@ node['MICRODATA']['PROD'].each do |lyr|
 
   physical_path = "#{lyr['name']}"
 
-
   iis_app "#{lyr['name']}" do
     site_name "Microdata"
     path "/#{lyr['name']}"
@@ -48,24 +47,6 @@ node['MICRODATA']['PROD32'].each do |lyr32|
     enabled_protocols "http"
     action :add
   end
-
-end
-
-node['MICRODATA']['PRODRep'].each do |lyrrep|
-
-  inetpub = "#{node['MICRODATA']['IISPATH']}Microdata\\"
-
-  physical_path = "#{lyrrep['name']}"
-
-  iis_app "#{lyrrep['subfolder']}" do
-    site_name "Microdata"
-    path "/#{lyrrep['subfolder']}"
-    application_pool "#{lyrrep['name']}"
-    physical_path "#{inetpub}PortalExames\\#{physical_path}"
-    enabled_protocols "http"
-    action :add
-  end
-
 end
 
 node['MICRODATA']['PRODPE'].each do |lyrpe|
@@ -81,6 +62,5 @@ node['MICRODATA']['PRODPE'].each do |lyrpe|
     physical_path "#{inetpub}PortalExames\\#{physical_path}"
     enabled_protocols "http"
     action :add
-end
-
+  end
 end
