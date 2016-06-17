@@ -15,11 +15,16 @@ execute 'Copy mPacs files' do
 end
 
 execute 'Copy PortalExames Client files' do
-  command "robocopy #{node['MICRODATA']['TEMPATH']}mPortalExames\\Client #{node['MICRODATA']['IISPATH']}\\Microdata\\PortalExames\\Client /s /COPY:DT"
+  command "robocopy #{node['MICRODATA']['TEMPATH']}PortalExames\\Client #{node['MICRODATA']['IISPATH']}\\Microdata\\PortalExames\\Client /s /COPY:DT"
   returns [0, 1]
 end
 
 execute 'Copy PortalExames WS files' do
-  command "robocopy #{node['MICRODATA']['TEMPATH']}mPortalExames\\WS #{node['MICRODATA']['IISPATH']}\\Microdata\\PortalExames\\WS /s /COPY:DT"
+  command "robocopy #{node['MICRODATA']['TEMPATH']}PortalExames\\WS #{node['MICRODATA']['IISPATH']}\\Microdata\\PortalExames\\WS /s /COPY:DT"
+  returns [0, 1]
+end
+
+execute 'Copy mConnect' do
+  command "robocopy #{node['MICRODATA']['TEMPATH']}mConnect\\mConnect\\Viewer #{node['MICRODATA']['IISPATH']}\\Microdata\\mConnect\\Viewer /s /COPY:DT"
   returns [0, 1]
 end

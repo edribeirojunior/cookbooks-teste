@@ -2,7 +2,7 @@ node['MICRODATA']['PROD'].each do |lyr|
 
 # Define a variavel inetpub
 
-  inetpub = "#{node['MICRODATA']['IISPATH']}\\Microdata\\"
+  inetpub = "#{node['MICRODATA']['IISPATH']}Microdata\\"
 
 # Cria o site Microdata
 
@@ -14,6 +14,10 @@ node['MICRODATA']['PROD'].each do |lyr|
     path "#{inetpub}"
     action [:add,:start]
   end
+
+  #iis_site 'iDCE.Service' do
+
+  #end
 
 # Cria os produtos Microdata no site Microdata, identificados pelos produtos cadastrados
 
@@ -28,4 +32,55 @@ node['MICRODATA']['PROD'].each do |lyr|
     enabled_protocols "http"
     action :add
   end
+end
+
+node['MICRODATA']['PROD32'].each do |lyr32|
+
+  inetpub = "#{node['MICRODATA']['IISPATH']}Microdata"
+
+  physical_path = "#{lyr32['path']}"
+
+  iis_app "#{lyr32['name']}" do
+    site_name "Microdata"
+    path "/#{lyr32['name']}"
+    application_pool "#{lyr32['name']}"
+    physical_path "#{inetpub}#{physical_path}"
+    enabled_protocols "http"
+    action :add
+  end
+
+end
+
+node['MICRODATA']['PRODRep'].each do |lyrrep|
+
+  inetpub = "#{node['MICRODATA']['IISPATH']}Microdata\\"
+
+  physical_path = "#{lyrrep['name']}"
+
+  iis_app "#{lyrrep['subfolder']}" do
+    site_name "Microdata"
+    path "/#{lyrrep['subfolder']}"
+    application_pool "#{lyrrep['name']}"
+    physical_path "#{inetpub}PortalExames\\#{physical_path}"
+    enabled_protocols "http"
+    action :add
+  end
+
+end
+
+node['MICRODATA']['PRODPE'].each do |lyrpe|
+
+  inetpub = "#{node['MICRODATA']['IISPATH']}Microdata\\"
+
+  physical_path = "#{lyrpe['subfolder']}"
+
+  iis_app "#{lyrpe['subfolder']}" do
+    site_name "Microdata"
+    path "/#{lyrpe['subfolder']}"
+    application_pool "#{lyrpe['name']}"
+    physical_path "#{inetpub}PortalExames\\#{physical_path}"
+    enabled_protocols "http"
+    action :add
+end
+
 end

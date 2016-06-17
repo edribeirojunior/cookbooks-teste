@@ -3,25 +3,39 @@
       "PROD": [
           {"name":"iDCE","path":"\\iDCE","version":"_2016.5.1.6.rar","subfolder":"IDCE_mCockpit"},
           {"name":"mPacs","path": "\\mPacs","version": "_2015.2.6.40.rar","subfolder":"mPacs2.0"},
-          {"name":"mReportBuilder","path": "\\mReportBuilder","version":".1.rar"},
           {"name":"mUpdater","path":"\\mUpdater","version":"Servico.rar"},
           {"name":"mEntrega","path":"\\mEntrega","version":"_2016.5.1.6.rar"},
-          {"name":"mConnect","path":"\\mConnect\\Viewer","version":"_2013.1.6.9-2.rar"},
-          {"name":"mCockpit","path":"\\mCockpit","version":"_2016.5.1.6.rar"},
-          {"name":"PortalExames","path":"\\PortalExames","version":"_4.0.rar","subfolder":["Client","WS"]}
+          {"name":"mCockpit","path":"\\mCockpit","version":"_2016.5.1.6.rar"}
       ],
       "SITE":"Microdata",
       "IISPATH": "C:\\inetpub\\wwwroot\\",
       "TEMPATH": "C:\\Temp\\"
 
   },
+
+    "MICRODATA": {
+        "PROD32": [
+          {"name":"mConnect","path":"\\mConnect\\Viewer","version":"_2013.1.6.9-2.rar"}
+        ]
+    },
+    "MICRODATA": {
+        "PRODRep": [
+          {"name":"mReportBuilder","path": "\\mReportBuilder","version":".1.rar"}
+        ]
+    },
+    "MICRODATA": {
+        "PRODPE": [
+            {"name":"PortalExames","path":"\\PortalExames","version":"_4.0.rar","subfolder":["Client","WS"]}
+        ]
+    },
   "config_variables": {
      "path_name" : "_VERIFIQUE",
+     "portidce": 1000 ,
      "port" : 81
  },
   "Service": {
      "PROD": [
-         {"name":"iDCE","path":"\\iDCE.Servico","version":"_2016.5.6.rar","subfolder":"idce_servico_mcockpit"},
+         {"name":"iDCE","path":"\\iDCE.Servico","version":"_2016.5.1.6.rar","subfolder":"idce_servico_mcockpit"},
          {"name":"mPacs","path":"\\mPacs.Servico","version":"_Servico.rar"}
 
      ]
