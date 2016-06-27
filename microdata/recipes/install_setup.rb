@@ -4,7 +4,7 @@ node['Install']['PROD'].each do |lyr|
 
   windows_package 'Microdata EXE' do
     source "#{node['MICRODATA']['TEMPATH']}#{lyr['name']}/#{lyr['setupexe']}"
-    options '-quiet'
+    options '-q'
     action :install
   end
 
