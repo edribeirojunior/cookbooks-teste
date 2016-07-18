@@ -1,4 +1,6 @@
 # cookbooks-teste
 
-Cookbook criado na NVT para automação. 
+Cookbooks for Automation Programming; 
+
+Copyright 2016. 
 
